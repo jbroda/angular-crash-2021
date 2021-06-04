@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../Task';
+import { Observer } from 'rxjs';
 
 @Component({
   selector: 'app-tasks',
@@ -31,5 +32,17 @@ export class TasksComponent implements OnInit {
 
   addTask(task: Task) {
     this.taskService.addTask(task).subscribe((task) => this.tasks.push(task));
+  }
+
+  editTask(task: Task): void {
+    console.log("TasksComponent::editTask " + task);
+
+    const myObserver:Observer<Task> = {
+      next: (x: Task) => console.log('Observer got a next value: ' + x),
+      error: (err: Error) => console.error('Observer got an error: ' + err),
+      complete: () => console.log('Observer got a complete notification'),
+    };
+
+    this.taskService.updateTask(task).subscribe(myObserver);
   }
 }

@@ -1,34 +1,22 @@
 {
   "tasks": [
     {
-      "text": "test",
-      "day": "",
+      "text": "task2",
+      "reminder": true,
+      "id": 1,
+      "day": "2021-06-10T06:48"
+    },
+    {
+      "text": "task1",
+      "day": "2021-06-04T06:46",
+      "reminder": true,
+      "id": 2
+    },
+    {
+      "text": "task3",
+      "day": "2021-06-04T06:46",
       "reminder": true,
       "id": 3
-    },
-    {
-      "text": "Maya",
-      "day": "df",
-      "reminder": false,
-      "id": 4
-    },
-    {
-      "text": "yrdy",
-      "day": "fdgdfg",
-      "reminder": true,
-      "id": 5
-    },
-    {
-      "text": "dsfsd",
-      "day": "sfsdf",
-      "reminder": true,
-      "id": 6
-    },
-    {
-      "text": "dsfs",
-      "day": "dsf",
-      "reminder": true,
-      "id": 7
     }
   ]
 }

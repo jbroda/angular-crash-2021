@@ -1,15 +1,55 @@
 <div
   [ngClass]="{ reminder: task.reminder }"
   class="task"
-  (dblclick)="onToggle(task)"
->
+  (dblclick)="onToggle(task)">
+
   <h3>
     {{ task.text }}
-    <fa-icon
-      (click)="onDelete(task)"
-      [ngStyle]="{ color: 'red' }"
-      [icon]="faTimes"
-    ></fa-icon>
+    <div>
+      <fa-icon
+        (click)="onEdit(task)"
+        [icon]="faEdit"></fa-icon>
+      <fa-icon
+        (click)="onDelete(task)"
+        [ngStyle]="{ color: 'red' }"
+        [icon]="faTimes">
+      </fa-icon>
+    </div>
   </h3>
+
   <p>{{ task.day }}</p>
+
 </div>
+
+<form *ngIf="showEditTask" class="edit-form" (ngSubmit)="onSubmit(task)">
+  <div class="form-control">
+    <label for="text">Task</label>
+    <input
+      type="text"
+      name="text"
+      id="text"
+      [(ngModel)]="task.text"
+      placeholder="Add Task"
+    />
+  </div>
+  <div class="form-control">
+    <label for="day">Day & Time</label>
+    <input
+      type="datetime-local"
+      name="day"
+      id="day"
+      [(ngModel)]="task.day"
+      placeholder="Add Day & Time"
+    />
+  </div>
+  <div class="form-control form-control-check">
+    <label for="reminder">Set Reminder</label>
+    <input
+      type="checkbox"
+      name="reminder"
+      id="reminder"
+      [(ngModel)]="task.reminder"
+    />
+  </div>
+  <input type="submit" value="Save Task" class="btn btn-block" />
+</form>
