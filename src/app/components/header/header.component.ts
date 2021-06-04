@@ -18,19 +18,19 @@ export class HeaderComponent implements OnInit {
       .onToggle()
       .subscribe((value) => (this.showAddTask = value));
   }
-
+  
   ngOnInit(): void {}
   
-   ngOnDestroy() {
+   ngOnDestroy() : void {
      // Unsubscribe to ensure no memory leaks
      this.subscription.unsubscribe();
    }
 
-  toggleAddTask() {
+  toggleAddTask() : void {
     this.uiService.toggleAddTask();
   }
 
-  hasRoute(route: string) {
+  hasRoute(route: string) : boolean {
     return this.router.url === route;
   }
 }
