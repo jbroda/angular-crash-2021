@@ -25,7 +25,10 @@ export class TaskItemComponent implements OnInit {
   ngOnInit(): void {}
 
   onDelete(task: Task): void {
-    this.onDeleteTask.emit(task);
+    if (confirm("Are you sure?"))
+    {
+      this.onDeleteTask.emit(task);
+    }
   }
 
   onToggle(task: Task): void {

@@ -11,12 +11,6 @@
       "day": "2021-06-04T06:46",
       "reminder": true,
       "id": 2
-    },
-    {
-      "text": "task3",
-      "day": "2021-06-04T06:46",
-      "reminder": true,
-      "id": 3
     }
   ]
 }
