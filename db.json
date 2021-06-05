@@ -29,7 +29,7 @@
     {
       "text": "task3",
       "day": "2021-06-05T12:27",
-      "reminder": false,
+      "reminder": true,
       "id": 3
     },
     {

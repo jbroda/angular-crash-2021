@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../Task';
 import { Observer } from 'rxjs';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-tasks',
@@ -11,16 +12,27 @@ import { Observer } from 'rxjs';
 export class TasksComponent implements OnInit {
   tasks: Task[] = [];
 
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, private appComponent: AppComponent) {}
 
   ngOnInit(): void {
-    this.taskService.login().subscribe(
-      {
-        next: (x: any) => {
-          this.taskService.setAccessToken(x.accessToken);
-          this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
-        }
-      });
+
+    var accessToken = this.appComponent.getAccessToken();
+    if (accessToken === '')
+    {
+      this.appComponent.login().subscribe(
+        {
+          next: (x: any) => {
+            this.taskService.setAccessToken(x.accessToken);
+            this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+          }
+        });
+
+    }
+    else
+    {
+      this.taskService.setAccessToken(accessToken);
+      this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+    }
   }
 
   deleteTask(task: Task) {
