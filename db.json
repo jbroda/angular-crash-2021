@@ -1,16 +1,42 @@
 {
-  "tasks": [
+  "users": [
     {
-      "text": "task2",
-      "reminder": true,
-      "id": 1,
-      "day": "2021-06-10T06:48"
+      "email": "test@mail.com",
+      "password": "$2a$10$MP.ufaGrIcndp0cwXZIVq.gNhemeqIgeTJyMUAZ3XzwBpQ/MpvxUy",
+      "id": 1
     },
     {
+      "email": "test2@mail.com",
+      "password": "$2a$10$MP.ufaGrIcndp0cwXZIVq.gNhemeqIgeTJyMUAZ3XzwBpQ/MpvxUy",
+      "id": 2
+    }
+  ],
+  "tasks": [
+    {
       "text": "task1",
+      "reminder": true,
+      "id": 1,
+      "day": "2021-06-10T06:48",
+      "userId": 1
+    },
+    {
+      "text": "task2",
       "day": "2021-06-04T06:46",
       "reminder": true,
-      "id": 2
+      "id": 2,
+      "userId": 1
+    },
+    {
+      "text": "task3",
+      "day": "2021-06-05T12:27",
+      "reminder": false,
+      "id": 3
+    },
+    {
+      "text": "task4",
+      "day": "2021-06-26T12:27",
+      "reminder": true,
+      "id": 4
     }
   ]
 }
